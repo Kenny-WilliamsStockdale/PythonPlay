@@ -67,27 +67,27 @@
 # fizz_buzz()
 
 #part 3 
-# def fizz_buzz(i = 15):
-#         x = 0
-#         list = []
-#         list.append(tuple((x, str(x))))
-#         while x < i + 1:
-#                 # print(x) 
-#             if x % 3 == 0 and x % 5 == 0:
-#                 list.append(tuple((x,'fizzBuzz')))
-#                 # print('fizzBuzz')
-#             elif x % 3 == 0:
-#                 list.append(tuple((x,'fizz')))
-#                 # print('fizz')
-#             elif x % 5 == 0:
-#                 list.append(tuple((x,'buzz')))
-#                 # print('buzz')
-#             else:
-#                 list.append(tuple((x, str(x)))) 
-#                 # print(x)
-#             x += 1
-#         print(list)
-# fizz_buzz()
+def fizz_buzz(i = 15):
+        x = 0
+        list = []
+        list.append(tuple((x, str(x))))
+        while x < i + 1:
+                # print(x) 
+            if x % 3 == 0 and x % 5 == 0:
+                list.append(tuple((x,'fizzBuzz')))
+                # print('fizzBuzz')
+            elif x % 3 == 0:
+                list.append(tuple((x,'fizz')))
+                # print('fizz')
+            elif x % 5 == 0:
+                list.append(tuple((x,'buzz')))
+                # print('buzz')
+            else:
+                list.append(tuple((x, str(x)))) 
+                # print(x)
+            x += 1
+        print(list)
+fizz_buzz()
 
 # def fizz_buzz(fizz=3, buzz= 5, up_to_number= 15):
 #         x = 0

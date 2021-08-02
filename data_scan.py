@@ -33,21 +33,34 @@ def scan(has_header=False):
     return result,values
 
 # Exercise one
-def sum_of(column_name, a_list_of_dictionary):
+def sum_of( a_list_of_dictionary,column_names=1):
     """
     Return one value that is the sum of the column 
     column_name of each "row" (dictionary)
     """
-    pass
+    # Get a header line
+    result = 0
+    for a_dictionary in a_list_of_dictionary:
+        for key,value in a_dictionary.items():
+            if key == column_names:
+                result += int(value)
+    print(result)
+
 
 #Exercise Two
-def multiple_cols(column_names,a_list_of_dictioinary):
+def multiple_cols(column_names,a_list_of_dictionary):
     """
     Return a new list of "rows" (dictionary)
-    That multiples the values of the named columns
+    That multiples the values of the named columns across A: 24 B: 120
     
     """
-    pass
+    result_list = []
+    for a_row in a_list_of_dictionary:
+        row_product = 1
+        for a_name in a_list_of_dictionary[column_names]:
+            row_product *= a_row[a_name]
+        result_list += [{'Multi':row_product}]
+    return result_list
 
 #Exercise Three
 # - fix display_table so that the columns all line up
@@ -80,3 +93,5 @@ if __name__ == "__main__":
    #print(f'The args are {args}')
    dict_lst,values_lst = scan(args['header'])
    display_table(dict_lst)
+   sum_of(dict_lst)
+   multiple_cols(1,dict_lst)
