@@ -63,7 +63,7 @@ def run_menu_one(a_value):
                    "Select a number.",\
                    (1,"Menu Burger",test_cmd),  \
                    (2,"Menu Chips",test_cmd),   \
-                   (3,"Quit",quit_cmd)\
+                   (3,"Quit",back_cmd)\
                  ]
     run_menu(menu_one)
     return True
@@ -73,7 +73,7 @@ def run_menu_two(a_value):
                    "Select a number.",\
                    (1,"Menu Drink",test_cmd),  \
                    (2,"Menu Desert",test_cmd),   \
-                   (3,"Quit",quit_cmd)\
+                   (3,"Quit",back_cmd)\
                  ]
     run_menu(menu_two)
     return True
@@ -82,9 +82,13 @@ def test_cmd(a_value):
     print("A dummy command {}".format(a_value))
     return True # contine
 
-def quit_cmd(a_value):
+def back_cmd(a_value):
+    return False # stop
+
+def exit_cmd(a_value):
     print( 'Thank you, good-bye!')
     return False # stop
+    
 
 if __name__ == "__main__":
     # testing code for now
@@ -93,7 +97,7 @@ if __name__ == "__main__":
                    (1,"Menu One",run_menu_one),  \
                    (2,"Menu Two",run_menu_two),   \
                    (3,"Menu Three",test_cmd), \
-                   (4,"Quit",quit_cmd)\
+                   (4,"Quit",exit_cmd), \
                  ]
     run_menu(menu_list)
 
