@@ -17,7 +17,7 @@ def story() :
             if choice3 == ('Go'):
                 print('You get lost on your way and with it getting dark you fear you will never make it home.')
             elif choice3 ==('Stay'):
-                print('You spend a joyness night with your friends. In the morning they offer to give a ride in the carriage home.')
+                print('You spend a joyous night with your friends. In the morning they offer to give a ride in the carriage home.')
 
 if __name__ == "__main__":
     story()
