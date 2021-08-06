@@ -18,7 +18,7 @@ def make_valid_numbers(menu_list):
     Make a set of valid numbers from a menu_list
     """
     result = set()
-    print("in make valid numbers:")
+    # print("in make valid numbers:")
     first = True
     for a_tuple in menu_list:
         if first: 
