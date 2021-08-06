@@ -1,7 +1,8 @@
 # Start adventure at the forest - can go left to the mountain or right to the castle. Which way do you want to go?
 # variable choice 
-# if choice is = something
-# else the other choice
+# if choice is = input something
+# elif the other choice
+#print final outcome for choices
 def story() :
  
     choice1 = input('You start your adventure in the forest. You need to get home and it will be dark soon, do you go left to the mountain pass or right to the castle? \n Choose Left or Right')   
@@ -12,7 +13,7 @@ def story() :
            elif choice2 == ('Path'):
                print('You feel tired after the long trek but you make it home just in time for dinner.') 
     elif choice1 == ('Right'):
-            choice3 = input('Arriving at the castle you are greeted warmly by some friends. Do you spend the night or say you must be on your way? \n Stay / Go')
+            choice3 = input('Arriving at the castle you are greeted warmly by some friends. Do you spend the night or say you must be on your way home? \n Stay / Go')
             if choice3 == ('Go'):
                 print('You get lost on your way and with it getting dark you fear you will never make it home.')
             elif choice3 ==('Stay'):
