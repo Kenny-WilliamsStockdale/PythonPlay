@@ -38,7 +38,7 @@ def make_win4():
     return sg.Window('Second Window', layout, finalize=True)
 
 def make_win5():
-    layout = [[sg.Text('You end up falling off the mountain to your death. Bitch')],
+    layout = [[sg.Text('You end up falling off the mountain to your death.')],
               [sg.Button('End')]]
     return sg.Window('Second Window', layout, finalize=True)
 
