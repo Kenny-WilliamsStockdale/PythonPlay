@@ -42,8 +42,19 @@ def make_win5():
               [sg.Button('End')]]
     return sg.Window('Second Window', layout, finalize=True)
 
+def make_win6():
+    layout = [[sg.Text('You get lost on your way and with it getting dark you fear you will never make it home.')],
+              [sg.Button('End')]]
+    return sg.Window('Second Window', layout, finalize=True)
+
+def make_win6():
+    layout = [[sg.Text('You spend a joyous night with your friends. In the morning they offer to give a ride in the carriage home.')],
+              [sg.Button('End')]]
+    return sg.Window('Second Window', layout, finalize=True)
+
 window1, window2 = make_win1(), None 
-window3 = None 
+window3 = None
+window4 = None 
 # start off with 1 window open
 while True:             # Event Loop
     window, event, values = sg.read_all_windows()
@@ -66,7 +77,12 @@ while True:             # Event Loop
     elif event == 'Track' and not window3:
         window3 = make_win5()
         window2 = window.close()
-        
+    elif event == 'Go' and not window4:
+        window4 = make_win6()
+        window2 = window.close()
+    elif event == 'Stay' and not window4:
+        window4 = make_win6()
+        window2 = window.close()
 window.close()
 
 
