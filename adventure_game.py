@@ -6,15 +6,17 @@
 
 import PySimpleGUI as sg
 """
-    Demo - 2 simultaneous windows using read_all_window
+    Demo - open and closing windows simultaneously.
 
-    Window 1 launches window 2
-    BOTH remain active in parallel
+    Text scroll adventure game
+    
+    Window 1 launches (depending on choices) window 2 & 3
+    Window 2 choices open up 4 & 5
+    Window 3 choices opens 6 & 7
+    
 
-    Both windows have buttons to launch popups.  The popups are "modal" and thus no other windows will be active
-
-    Copyright 2020 PySimpleGUI.org
 """
+# functions that contain text/story and buttons for options to the next window
 
 def make_win1():
     layout = [[sg.Text('You start your adventure in the forest.\nYou need to get home and it will be dark soon,\ndo you go left to the mountain pass or right to the castle?'), sg.Text('      ', k='-OUTPUT-')],
@@ -47,16 +49,16 @@ def make_win6():
               [sg.Button('End')]]
     return sg.Window('Second Window', layout, finalize=True)
 
-def make_win6():
+def make_win7():
     layout = [[sg.Text('You spend a joyous night with your friends. In the morning they offer to give a ride in the carriage home.')],
               [sg.Button('End')]]
     return sg.Window('Second Window', layout, finalize=True)
 
-window1, window2 = make_win1(), None 
+window1, window2 = make_win1(), None # start off with only window 1 open
 window3 = None
 window4 = None 
-# start off with 1 window open
-while True:             # Event Loop
+
+while True:             # The Event Loop
     window, event, values = sg.read_all_windows()
     if event == sg.WIN_CLOSED or event == 'End':
         window.close()
@@ -64,7 +66,7 @@ while True:             # Event Loop
             window2 = None
         elif window == window1:     # if closing win 1, exit program
             break
-        
+      # elif events that makes the previous windows close upon selecting a button from the listed functions above  
     elif event == 'Left' and not window2:
         window2 = make_win2()
         window = window.close()
@@ -81,11 +83,11 @@ while True:             # Event Loop
         window4 = make_win6()
         window2 = window.close()
     elif event == 'Stay' and not window4:
-        window4 = make_win6()
+        window4 = make_win7()
         window2 = window.close()
 window.close()
 
-
+# original story Non- GUI code below
 def story() :
  
     choice1 = input('You start your adventure in the forest. You need to get home and it will be dark soon, do you go left to the mountain pass or right to the castle? \n Choose Left or Right')   
