@@ -6,9 +6,11 @@
 
 import PySimpleGUI as sg
 """
-    Demo - open and closing windows simultaneously.
+    Adventure Game - open and closing windows simultaneously.
 
     Text scroll adventure game
+    
+    Click "choices" buttons which will open a new window and progress the story.
     
     Window 1 launches (depending on choices) window 2 & 3
     Window 2 choices open up 4 & 5
@@ -54,38 +56,40 @@ def make_win7():
               [sg.Button('End')]]
     return sg.Window('Second Window', layout, finalize=True)
 
-window1, window2 = make_win1(), None # start off with only window 1 open
-window3 = None
-window4 = None 
+def event_loop():
+    window1, window2 = make_win1(), None # start off with only window 1 open
+    window3 = None
+    window4 = None 
 
-while True:             # The Event Loop
-    window, event, values = sg.read_all_windows()
-    if event == sg.WIN_CLOSED or event == 'End':
-        window.close()
-        if window == window2:       # if closing win 2, mark as closed
-            window2 = None
-        elif window == window1:     # if closing win 1, exit program
-            break
+    while True:             # The Event Loop
+        window, event, values = sg.read_all_windows()
+        if event == sg.WIN_CLOSED or event == 'End':
+            window.close()
+            if window == window2:       # if closing win 2, mark as closed
+                window2 = None
+            elif window == window1:     # if closing win 1, exit program
+                break
       # elif events that makes the previous windows close upon selecting a button from the listed functions above  
-    elif event == 'Left' and not window2:
-        window2 = make_win2()
-        window = window.close()
-    elif event == 'Right' and not window2:
-        window2 = make_win3()
-        window = window.close()
-    elif event == 'Path' and not window3:
-        window3 = make_win4()
-        window2 = window.close()
-    elif event == 'Track' and not window3:
-        window3 = make_win5()
-        window2 = window.close()
-    elif event == 'Go' and not window4:
-        window4 = make_win6()
-        window2 = window.close()
-    elif event == 'Stay' and not window4:
-        window4 = make_win7()
-        window2 = window.close()
-window.close()
+        elif event == 'Left' and not window2:
+            window2 = make_win2()
+            window = window.close()
+        elif event == 'Right' and not window2:
+            window2 = make_win3()
+            window = window.close()
+        elif event == 'Path' and not window3:
+            window3 = make_win4()
+            window2 = window.close()
+        elif event == 'Track' and not window3:
+            window3 = make_win5()
+            window2 = window.close()
+        elif event == 'Go' and not window4:
+            window4 = make_win6()
+            window2 = window.close()
+        elif event == 'Stay' and not window4:
+            window4 = make_win7()
+            window2 = window.close()
+    window.close()
+
 
 # original story Non- GUI code below
 def story() :
@@ -106,5 +110,6 @@ def story() :
 
 if __name__ == "__main__":
     #  story()
-    make_win1()
-    make_win2()
+    # make_win1()
+    # make_win2()
+    event_loop()
