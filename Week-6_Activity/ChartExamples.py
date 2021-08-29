@@ -141,7 +141,7 @@ def histogram(**kwargs):
     if kwargs['title']:
            plt.title(kwargs['title'])
     else:
-           plt.title("Gaussian Histogram")
+           plt.title("Gaussian Histogram") #changed title to this upon function call
 
     gaussian_numbers = np.random.normal(size=10000)
     
@@ -274,7 +274,7 @@ if __name__ == "__main__":
 
     show_figFunc(multiple_plots)
     show_figFunc(bar_chart)
-    show_figFunc(histogram, title="Our Name for Title")
+    show_figFunc(histogram, title="")
     show_figFunc(scatter_plots)
     show_figFunc(stack_plot)
     show_figFunc(pie_chart1)
