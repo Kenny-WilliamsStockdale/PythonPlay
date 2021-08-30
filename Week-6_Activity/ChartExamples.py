@@ -147,7 +147,10 @@ def histogram(**kwargs):
     
     plt.hist(gaussian_numbers, bins=20)
     
-    plt.xlabel("Value")
+    if kwargs['value']:
+           plt.xlabel(kwargs['value'])
+    else:
+           plt.xlabel("value")
     plt.ylabel("Frequency")
     #plt.show()
     return plt.gcf()
@@ -211,6 +214,8 @@ def pie_chart1(**kwargs):
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
     plt.title('TIOBE Index for May 2021')
+    
+
     #plt.show()
     return plt.gcf()
 
@@ -233,6 +238,7 @@ def pie_chart2(**kwargs):
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
     plt.title('TIOBE Index for May 2021')
+    
     #plt.show()
     return plt.gcf()
 
@@ -274,7 +280,7 @@ if __name__ == "__main__":
 
     show_figFunc(multiple_plots)
     show_figFunc(bar_chart)
-    show_figFunc(histogram, title="")
+    show_figFunc(histogram, title="",value ="Hello")
     show_figFunc(scatter_plots)
     show_figFunc(stack_plot)
     show_figFunc(pie_chart1)

@@ -62,7 +62,7 @@ if __name__ == "__main__":
 
     dictionary_of_figure_functions = {'Line Plot':(ce.line_plot,{}),'Plot Dots(discrete plot)':(ce.discrete_plot,{}),
     'Name and Label':(ce.names_labels,{}),'Plot many Lines':(ce.multiple_plots,{}),
-    'Bar Chart':(ce.bar_chart,{}),'Histogram':(ce.histogram,{'title':''}),
+    'Bar Chart':(ce.bar_chart,{}),'Histogram':(ce.histogram,{'title':'','value': 'Hello'}),
     'Scatter Plots':(ce.scatter_plots,{}),'Stack Plot':(ce.stack_plot,{}),
     'Pie Chart 1':(ce.pie_chart1,{}),
     'Pie Chart 2':(ce.pie_chart2,{})}
