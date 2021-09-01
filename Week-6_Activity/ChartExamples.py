@@ -52,7 +52,6 @@ def discrete_plot(**kwargs):
     if kwargs['fmt']:
         fmt = kwargs['fmt']
            
-    print(fmt)
     plt.plot(data,fmt)
     # See formating here :
     # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot
@@ -76,15 +75,21 @@ def names_labels(**kwargs):
     """
     days = range(1, 9)
     celsius_values = [25.6, 24.1, 26.7, 28.3, 27.5, 30.5, 32.8, 33.1]
-
+    
     fig, ax = plt.subplots() # Challenge - Why "fig" here"
-
+    # if kwargs['daydata']:
+    #     days = kwargs['daydata']
+    # if kwargs['c_values']:
+    #     celsius_values = kwargs['c_values']
+    # ax.plot(days, celsius_values)
     ax.plot(days, celsius_values)
     ax.set(xlabel='Day',
         ylabel='Temperature in Celsius',
         title='Temperature Graph')
+    
+    
+    
     # See kwargs here https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axes.html
-
     #plt.show()
     return plt.gcf()
 
@@ -290,7 +295,7 @@ if __name__ == "__main__":
 
     show_figFunc(discrete_plot, disdata = [3, -7.5, 14, 6], fmt = "+r")
 
-    show_figFunc(names_labels)
+    show_figFunc(names_labels, daydata = range(1,9), c_values = [23.7,34.8,26,24,32,28.5])
 
     show_figFunc(multiple_plots)
     show_figFunc(bar_chart)
