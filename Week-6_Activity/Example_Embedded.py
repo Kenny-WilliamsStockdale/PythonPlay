@@ -60,7 +60,7 @@ def embedded_plt(fig_dict):
 if __name__ == "__main__":
     #ce.show_figFunc(ce.bar_chart)
 
-    dictionary_of_figure_functions = {'Line Plot':(ce.line_plot,{}),'Plot Dots(discrete plot)':(ce.discrete_plot,{}),
+    dictionary_of_figure_functions = {'Line Plot':(ce.line_plot,{'plotdata':[1,2,3,4,5,6]}),'Plot Dots(discrete plot)':(ce.discrete_plot,{}),
     'Name and Label':(ce.names_labels,{}),'Plot many Lines':(ce.multiple_plots,{}),
     'Bar Chart':(ce.bar_chart,{}),'Histogram':(ce.histogram,{'title':'','value': 'Hello'}),
     'Scatter Plots':(ce.scatter_plots,{}),'Stack Plot':(ce.stack_plot,{}),

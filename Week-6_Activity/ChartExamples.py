@@ -30,7 +30,10 @@ def line_plot(**kwargs):
     Args 
           **kwargs lets you pass arguments into this function 
     """
-    plt.plot([-1, -4.5, 16, 23])
+    if kwargs['plotdata']:
+        plt.plot(kwargs['plotdata'])
+    else:
+        plt.plot([-1, -4.5, 16, 23])
      
     #plt.show()
     return plt.gcf()
@@ -42,7 +45,15 @@ def discrete_plot(**kwargs):
     Args 
           **kwargs lets you pass arguments into this function
     """
-    plt.plot([-1, -4.5, 16, 23], "ob")
+    data = [-1, -4.5, 16, 23]
+    fmt = "ob"
+    if kwargs['disdata']:
+        data = kwargs['disdata']
+    if kwargs['fmt']:
+        fmt = kwargs['fmt']
+           
+    print(fmt)
+    plt.plot(data,fmt)
     # See formating here :
     # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot
 
@@ -143,7 +154,10 @@ def histogram(**kwargs):
     else:
            plt.title("Gaussian Histogram") #changed title to this upon function call
 
-    gaussian_numbers = np.random.normal(size=10000)
+    if kwargs["gaussian"]:
+            gaussian_numbers = kwargs['gaussian']
+    else:
+        gaussian_numbers = np.random.normal(size=10000)
     
     plt.hist(gaussian_numbers, bins=20)
     
@@ -272,15 +286,15 @@ def fig_with_kwargs(pFigureFunction, **kwargs):
 
 if __name__ == "__main__":
     # Test scripts
-    show_figFunc(line_plot)
+    show_figFunc(line_plot, plotdata = [4, 3, 6, 7.1])
 
-    show_figFunc(discrete_plot)
+    show_figFunc(discrete_plot, disdata = [3, -7.5, 14, 6], fmt = "+r")
 
     show_figFunc(names_labels)
 
     show_figFunc(multiple_plots)
     show_figFunc(bar_chart)
-    show_figFunc(histogram, title="",value ="Hello")
+    show_figFunc(histogram, title="",value ="Hello", gaussian = [10,1,7,8,4,9,13,7])
     show_figFunc(scatter_plots)
     show_figFunc(stack_plot)
     show_figFunc(pie_chart1)
